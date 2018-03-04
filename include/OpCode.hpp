@@ -22,7 +22,7 @@
 
 #include <stdint.h>
 
-#include "../Addressing.hpp"
+#include "Addressing.hpp"
 
 class Cpu65816;
 

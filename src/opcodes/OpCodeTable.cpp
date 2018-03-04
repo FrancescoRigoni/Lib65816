@@ -20,7 +20,7 @@
 #ifndef OPCODE_TABLE_HPP
 #define OPCODE_TABLE_HPP
 
-#include "../Cpu65816.hpp"
+#include "Cpu65816.hpp"
 
 OpCode Cpu65816::OP_CODE_TABLE[] = {
     OpCode(0x00, "BRK", AddressingMode::Interrupt,                            &Cpu65816::executeInterrupt),

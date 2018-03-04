@@ -17,8 +17,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "../Interrupt.hpp"
-#include "../Cpu65816.hpp"
+#include "Interrupt.hpp"
+#include "Cpu65816.hpp"
 
 #define LOG_TAG "Cpu::executeInterrupt"
 

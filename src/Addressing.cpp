@@ -17,7 +17,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Cpu65816.hpp"
+#include <Cpu65816.hpp>
+#include <OpCode.hpp>
+#include <SystemBusDevice.hpp>
 
 #define LOG_TAG "Addressing"
 
