@@ -27,7 +27,7 @@
 #include "Addressing.hpp"
 #include "Stack.hpp"
 #include "CpuStatus.hpp"
-#include "opcodes/OpCode.hpp"
+#include "OpCode.hpp"
 #include "Log.hpp"
 #include "Binary.hpp"
 #include "BuildConfig.hpp"
