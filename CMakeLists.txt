@@ -25,8 +25,6 @@ else ()
     set (CMAKE_CXX_STANDARD 14)
 endif ()
 
-# Add all include directories
-include_directories(include/ ${SIMPLE_LOGGER_SRC})
 # Add paths for linker
 link_directories(${SIMPLE_LOGGER_BIN})
 
@@ -37,3 +35,4 @@ file(GLOB sources_65816 src/*.cpp src/opcodes/*.cpp)
 add_library(65816 ${sources_65816})
 add_dependencies(65816 simple-logger)
 target_link_libraries(65816 simpleLogger)
+target_include_directories(65816 PRIVATE ${PROJECT_SOURCE_DIR}/include ${SIMPLE_LOGGER_SRC})
