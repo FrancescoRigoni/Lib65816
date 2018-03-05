@@ -23,24 +23,6 @@
 
 #define LOG_TAG "SystemBus"
 
-SystemBus::SystemBus() {
-    mPpuApuRegs = new uint8_t[PPU_APU_REGS_SIZE];
-    mDspSuperFxRegs = new uint8_t[DSP_SUPERFX_REGS_SIZE];
-    mOldStyleJoypadRegs = new uint8_t[OLD_STYLE_JOYPAD_REGS_SIZE];
-    mDmaPpu2Regs = new uint8_t[DMA_PPU2_REGS_SIZE];
-    // TODO: allocate only if present on cartridge
-    mCartridgeSRam = new uint8_t[CARTRIDGE_SRAM_SIZE];
-
-}
-
-SystemBus::~SystemBus() {
-    delete[] mPpuApuRegs;
-    delete[] mDspSuperFxRegs;
-    delete[] mOldStyleJoypadRegs;
-    delete[] mDmaPpu2Regs;
-    delete[] mCartridgeSRam;
-}
-
 void SystemBus::registerDevice(SystemBusDevice *device) {
     mDevices.push_back(device);
 }

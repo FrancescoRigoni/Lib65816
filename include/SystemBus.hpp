@@ -25,17 +25,8 @@
 
 #include "SystemBusDevice.hpp"
 
-#define PPU_APU_REGS_SIZE                0x200
-#define DSP_SUPERFX_REGS_SIZE           0x1000
-#define OLD_STYLE_JOYPAD_REGS_SIZE       0x100
-#define DMA_PPU2_REGS_SIZE               0x300
-#define CARTRIDGE_SRAM_SIZE             0x2000
-
 class SystemBus {
     public:
-        SystemBus();
-        ~SystemBus();
-
         void registerDevice(SystemBusDevice *);
         void storeByte(const Address&, uint8_t);
         void storeTwoBytes(const Address&, uint16_t);
@@ -46,12 +37,6 @@ class SystemBus {
     private:
 
         std::vector<SystemBusDevice *> mDevices;
-
-        uint8_t *mPpuApuRegs;
-        uint8_t *mDspSuperFxRegs;
-        uint8_t *mOldStyleJoypadRegs;
-        uint8_t *mDmaPpu2Regs;
-        uint8_t *mCartridgeSRam;
 };
 
 #endif
