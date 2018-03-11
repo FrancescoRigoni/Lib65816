@@ -35,8 +35,7 @@ Address Address::sumOffsetToAddressNoWrapAround(const Address &address, uint16_t
 }
 
 Address Address::sumOffsetToAddressWrapAround(const Address &address, uint16_t offset) {
-    Address newAddress(address.getBank(), address.getOffset() + offset);
-    return newAddress;
+    return Address(address.getBank(), address.getOffset() + offset);
 }
 
 Address Address::sumOffsetToAddress(const Address &address, uint16_t offset) {
