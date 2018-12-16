@@ -34,6 +34,19 @@ Cpu65816::Cpu65816(SystemBus &systemBus, EmulationModeInterrupts *emulationInter
             mStack(&mSystemBus) {
 }
 
+
+void Cpu65816::setXL(uint8_t x) {
+     mX = x;
+}
+void Cpu65816::setYL(uint8_t y) {
+         mY = y;
+
+}
+Address Cpu65816::getProgramAddress() {
+    return mProgramAddress;
+}
+
+
 /**
  * Resets the cpu to its initial state.
  * */

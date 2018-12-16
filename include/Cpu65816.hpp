@@ -47,6 +47,9 @@ class Cpu65816 {
 
         // Temporary
         bool executeNextInstruction();
+        void setXL(uint8_t x);
+        void setYL(uint8_t y);
+        Address getProgramAddress();
 
     private:
         SystemBus &mSystemBus;
