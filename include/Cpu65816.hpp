@@ -55,6 +55,7 @@ class Cpu65816 {
         uint16_t getA();
 
         Address getProgramAddress();
+        void setProgramAddress(const Address &);
 
     private:
         SystemBus &mSystemBus;
@@ -100,7 +101,6 @@ class Cpu65816 {
         Address getAddressOfOpCodeData(OpCode &);
         bool opCodeAddressingCrossesPageBoundary(OpCode &);
 
-        void setProgramAddress(const Address &);
         void addToCycles(int);
         void subtractFromCycles(int);
         void addToProgramAddress(int);
