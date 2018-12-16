@@ -36,12 +36,25 @@ Cpu65816::Cpu65816(SystemBus &systemBus, EmulationModeInterrupts *emulationInter
 
 
 void Cpu65816::setXL(uint8_t x) {
-     mX = x;
+    mX = x;
 }
 void Cpu65816::setYL(uint8_t y) {
-         mY = y;
-
+    mY = y;
 }
+
+void Cpu65816::setX(uint16_t x) {
+    mX = x;
+}
+void Cpu65816::setY(uint16_t y) {
+    mY = y;
+}
+void Cpu65816::setA(uint16_t a) {
+    mA = a;
+}
+uint16_t Cpu65816::getA() {
+    return mA;
+}
+
 Address Cpu65816::getProgramAddress() {
     return mProgramAddress;
 }
