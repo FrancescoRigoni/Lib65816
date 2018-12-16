@@ -135,137 +135,136 @@ void Cpu65816::executeADC(OpCode &opCode) {
 #endif
 
     switch (opCode.getCode()) {
-        switch (opCode.getCode()) {
-            case (0x69):                 // ADC Immediate
-            {
-                if (accumulatorIs16BitWide()) {
-                    addToProgramAddress(1);
-                }
-                addToProgramAddress(3);
-                addToCycles(2);
-                break;
+        case (0x69):                 // ADC Immediate
+        {
+            if (accumulatorIs16BitWide()) {
+                addToProgramAddress(1);
             }
-            case (0x6D):                 // ADC Absolute
-            {
-                addToProgramAddress(3);
-                addToCycles(4);
-                break;
+            addToProgramAddress(2);
+            addToCycles(2);
+            break;
+        }
+        case (0x6D):                 // ADC Absolute
+        {
+            addToProgramAddress(3);
+            addToCycles(4);
+            break;
+        }
+        case (0x6F):                 // ADC Absolute Long
+        {
+            addToProgramAddress(4);
+            addToCycles(5);
+            break;
+        }
+        case (0x65):                 // ADC Direct Page
+        {
+            if (Binary::lower8BitsOf(mD) != 0) {
+                addToCycles(1);
             }
-            case (0x6F):                 // ADC Absolute Long
-            {
-                addToProgramAddress(4);
-                addToCycles(5);
-                break;
-            }
-            case (0x65):                 // ADC Direct Page
-            {
-                if (Binary::lower8BitsOf(mD) != 0) {
-                    addToCycles(1);
-                }
 
-                addToProgramAddress(2);
-                addToCycles(3);
-                break;
+            addToProgramAddress(2);
+            addToCycles(3);
+            break;
+        }
+        case (0x72):                 // ADC Direct Page Indirect
+        {
+            if (Binary::lower8BitsOf(mD) != 0) {
+                addToCycles(1);
             }
-            case (0x72):                 // ADC Direct Page Indirect
-            {
-                if (Binary::lower8BitsOf(mD) != 0) {
-                    addToCycles(1);
-                }
 
-                addToProgramAddress(2);
-                addToCycles(5);
-                break;
+            addToProgramAddress(2);
+            addToCycles(5);
+            break;
+        }
+        case (0x67):                 // ADC Direct Page Indirect Long
+        {
+            if (Binary::lower8BitsOf(mD) != 0) {
+                addToCycles(1);
             }
-            case (0x67):                 // ADC Direct Page Indirect Long
-            {
-                if (Binary::lower8BitsOf(mD) != 0) {
-                    addToCycles(1);
-                }
 
-                addToProgramAddress(2);
-                addToCycles(6);
-                break;
+            addToProgramAddress(2);
+            addToCycles(6);
+            break;
+        }
+        case (0x7D):                 // ADC Absolute Indexed, X
+        {
+            if (opCodeAddressingCrossesPageBoundary(opCode)) {
+                addToCycles(1);
             }
-            case (0x7D):                 // ADC Absolute Indexed, X
-            {
-                if (opCodeAddressingCrossesPageBoundary(opCode)) {
-                    addToCycles(1);
-                }
 
-                addToProgramAddress(3);
-                addToCycles(4);
-                break;
+            addToProgramAddress(3);
+            addToCycles(4);
+            break;
+        }
+        case (0x7F):                 // ADC Absolute Long Indexed, X
+        {
+            addToProgramAddress(4);
+            addToCycles(5);
+            break;
+        }
+        case (0x79):                 // ADC Absolute Indexed Y
+        {
+            if (opCodeAddressingCrossesPageBoundary(opCode)) {
+                addToCycles(1);
             }
-            case (0x7F):                 // ADC Absolute Long Indexed, X
-            {
-                addToProgramAddress(4);
-                addToCycles(5);
-                break;
+            addToProgramAddress(3);
+            addToCycles(4);
+            break;
+        }
+        case (0x75):                 // ADC Direct Page Indexed, X
+        {
+            if (Binary::lower8BitsOf(mD) != 0) {
+                addToCycles(1);
             }
-            case (0x79):                 // ADC Absolute Indexed Y
-            {
-                if (opCodeAddressingCrossesPageBoundary(opCode)) {
-                    addToCycles(1);
-                }
-                addToProgramAddress(3);
-                addToCycles(4);
-                break;
+            addToProgramAddress(2);
+            addToCycles(4);
+            break;
+        }
+        case (0x61):                 // ADC Direct Page Indexed Indirect, X
+        {
+            if (Binary::lower8BitsOf(mD) != 0) {
+                addToCycles(1);
             }
-            case (0x75):                 // ADC Direct Page Indexed, X
-            {
-                if (Binary::lower8BitsOf(mD) != 0) {
-                    addToCycles(1);
-                }
-                addToProgramAddress(2);
-                addToCycles(4);
-                break;
+            addToProgramAddress(2);
+            addToCycles(6);
+            break;
+        }
+        case (0x71):                 // ADC Direct Page Indirect Indexed, Y
+        {
+            if (Binary::lower8BitsOf(mD) != 0) {
+                addToCycles(1);
             }
-            case (0x61):                 // ADC Direct Page Indexed Indirect, X
-            {
-                if (Binary::lower8BitsOf(mD) != 0) {
-                    addToCycles(1);
-                }
-                addToProgramAddress(2);
-                addToCycles(6);
-                break;
+            if (opCodeAddressingCrossesPageBoundary(opCode)) {
+                addToCycles(1);
             }
-            case (0x71):                 // ADC Direct Page Indirect Indexed, Y
-            {
-                if (Binary::lower8BitsOf(mD) != 0) {
-                    addToCycles(1);
-                }
-                if (opCodeAddressingCrossesPageBoundary(opCode)) {
-                    addToCycles(1);
-                }
-                addToProgramAddress(2);
-                addToCycles(5);
-                break;
+            addToProgramAddress(2);
+            addToCycles(5);
+            break;
+        }
+        case (0x77):                 // ADC Direct Page Indirect Long Indexed, Y
+        {
+            if (Binary::lower8BitsOf(mD) != 0) {
+                addToCycles(1);
             }
-            case (0x77):                 // ADC Direct Page Indirect Long Indexed, Y
-            {
-                if (Binary::lower8BitsOf(mD) != 0) {
-                    addToCycles(1);
-                }
-                addToProgramAddress(2);
-                addToCycles(6);
-                break;
-            }
-            case (0x63):                 // ADC Stack Relative
-            {
-                addToProgramAddress(2);
-                addToCycles(4);
-                break;
-            }
-            case (0x73):                 // ADC Stack Relative Indirect Indexed, Y
-            {
-                addToProgramAddress(2);
-                addToCycles(7);
-                break;
-            }
-            default: {
-                LOG_UNEXPECTED_OPCODE(opCode);
-            }
+            addToProgramAddress(2);
+            addToCycles(6);
+            break;
+        }
+        case (0x63):                 // ADC Stack Relative
+        {
+            addToProgramAddress(2);
+            addToCycles(4);
+            break;
+        }
+        case (0x73):                 // ADC Stack Relative Indirect Indexed, Y
+        {
+            addToProgramAddress(2);
+            addToCycles(7);
+            break;
+        }
+        default: {
+            LOG_UNEXPECTED_OPCODE(opCode);
         }
     }
+    
 }
