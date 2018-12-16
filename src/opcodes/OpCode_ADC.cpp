@@ -141,7 +141,7 @@ void Cpu65816::executeADC(OpCode &opCode) {
                 if (accumulatorIs16BitWide()) {
                     addToProgramAddress(1);
                 }
-                addToProgramAddress(2);
+                addToProgramAddress(3);
                 addToCycles(2);
                 break;
             }
