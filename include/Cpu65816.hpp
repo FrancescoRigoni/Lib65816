@@ -56,6 +56,8 @@ class Cpu65816 {
 
         Address getProgramAddress();
         void setProgramAddress(const Address &);
+        Stack *getStack();
+        CpuStatus *getCpuStatus();
 
     private:
         SystemBus &mSystemBus;
