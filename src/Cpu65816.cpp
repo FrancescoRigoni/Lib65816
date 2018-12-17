@@ -63,6 +63,10 @@ Stack *Cpu65816::getStack() {
     return &mStack;
 }
 
+CpuStatus *Cpu65816::getCpuStatus() {
+    return &mCpuStatus;
+}
+
 
 /**
  * Resets the cpu to its initial state.
