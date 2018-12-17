@@ -183,9 +183,6 @@ Address Cpu65816::getAddressOfOpCodeData(OpCode &opCode) {
             break;
         case AddressingMode::DirectPageIndirectIndexedWithY:
         {
-
-                             Log::vrb(LOG_TAG).str("DirectPageIndirectIndexedWithY").hex( mSystemBus.readByte(mProgramAddress.newWithOffset(1))).show();
-
             Address firstStageAddress(0x00, mD + mSystemBus.readByte(mProgramAddress.newWithOffset(1)));
             uint16_t secondStageOffset = mSystemBus.readTwoBytes(firstStageAddress);
             Address thirdStageAddress(mDB, secondStageOffset);
