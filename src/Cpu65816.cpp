@@ -59,6 +59,10 @@ Address Cpu65816::getProgramAddress() {
     return mProgramAddress;
 }
 
+Stack *Cpu65816::getStack() {
+    return &mStack;
+}
+
 
 /**
  * Resets the cpu to its initial state.
