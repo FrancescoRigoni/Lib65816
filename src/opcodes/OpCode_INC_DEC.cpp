@@ -71,6 +71,7 @@ void Cpu65816::executeINCDEC(OpCode &opCode) {
                 mCpuStatus.updateSignAndZeroFlagFrom16BitValue(mA);
             }
             addToProgramAddressAndCycles(1, 2);
+            break;
         }
         case(0xEE): // INC Absolute
         {
@@ -81,6 +82,7 @@ void Cpu65816::executeINCDEC(OpCode &opCode) {
                 addToCycles(2);
             }
             addToProgramAddressAndCycles(3, 6);
+            break;
         }
         case(0xE6): // INC Direct Page
         {
@@ -94,6 +96,7 @@ void Cpu65816::executeINCDEC(OpCode &opCode) {
                 addToCycles(1);
             }
             addToProgramAddressAndCycles(2, 5);
+            break;
         }
         case(0xFE): // INC Absolute Indexed, X
         {
@@ -110,6 +113,7 @@ void Cpu65816::executeINCDEC(OpCode &opCode) {
 #endif
             addToProgramAddressAndCycles(3, 7);
         }
+        break;
         case(0xF6): // INC Direct Page Indexed, X
         {
             if (accumulatorIs8BitWide()) {
@@ -122,6 +126,7 @@ void Cpu65816::executeINCDEC(OpCode &opCode) {
                 addToCycles(1);
             }
             addToProgramAddressAndCycles(2, 6);
+            break;
         }
         case(0x3A):  // DEC Accumulator
         {
@@ -135,6 +140,7 @@ void Cpu65816::executeINCDEC(OpCode &opCode) {
                 mCpuStatus.updateSignAndZeroFlagFrom16BitValue(mA);
             }
             addToProgramAddressAndCycles(1, 2);
+            break;
         }
         case(0xCE): // DEC Absolute
         {
@@ -145,6 +151,7 @@ void Cpu65816::executeINCDEC(OpCode &opCode) {
                 addToCycles(2);
             }
             addToProgramAddressAndCycles(3, 6);
+            break;
         }
         case(0xC6): // DEC Direct Page
         {
@@ -158,6 +165,7 @@ void Cpu65816::executeINCDEC(OpCode &opCode) {
                 addToCycles(1);
             }
             addToProgramAddressAndCycles(2, 5);
+            break;
         }
         case(0xDE): // DEC Absolute Indexed, X
         {
@@ -173,6 +181,7 @@ void Cpu65816::executeINCDEC(OpCode &opCode) {
             }
 #endif
             addToProgramAddressAndCycles(3, 7);
+            break;
         }
         case(0xD6): // DEC Direct Page Indexed, X
         {
@@ -186,6 +195,7 @@ void Cpu65816::executeINCDEC(OpCode &opCode) {
                 addToCycles(1);
             }
             addToProgramAddressAndCycles(2, 6);
+            break;
         }
         case(0xC8):  // INY
         {
