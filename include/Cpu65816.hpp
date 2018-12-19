@@ -47,6 +47,17 @@ class Cpu65816 {
 
         // Temporary
         bool executeNextInstruction();
+        void setXL(uint8_t x);
+        void setYL(uint8_t y);
+        void setX(uint16_t x);
+        void setY(uint16_t y);
+        void setA(uint16_t a);
+        uint16_t getA();
+
+        Address getProgramAddress();
+        void setProgramAddress(const Address &);
+        Stack *getStack();
+        CpuStatus *getCpuStatus();
 
     private:
         SystemBus &mSystemBus;
@@ -92,7 +103,6 @@ class Cpu65816 {
         Address getAddressOfOpCodeData(OpCode &);
         bool opCodeAddressingCrossesPageBoundary(OpCode &);
 
-        void setProgramAddress(const Address &);
         void addToCycles(int);
         void subtractFromCycles(int);
         void addToProgramAddress(int);

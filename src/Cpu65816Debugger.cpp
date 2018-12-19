@@ -157,11 +157,11 @@ void Cpu65816Debugger::logOpCode(OpCode &opCode) const {
             log.str("                    [Direct Page Indirect Long]");
             break;
         case AddressingMode::DirectPageIndexedIndirectWithX:
-            log.str("(").hex(mCpu.mSystemBus.readByte(mCpu.getAddressOfOpCodeData(opCode)), 2).str(", X)").sp();
+            log.str("(").hex(mCpu.mSystemBus.readByte(Address(mCpu.mProgramAddress.getBank(),mCpu.mProgramAddress.getOffset()+1)), 2).str(", X)").sp();
             log.str("                    [Direct Page Indexed Indirect, X]");
             break;
         case AddressingMode::DirectPageIndirectIndexedWithY:
-            log.str("(").hex(mCpu.mSystemBus.readByte(mCpu.getAddressOfOpCodeData(opCode)), 2).str("), Y").sp();
+            log.str("(").hex(mCpu.mSystemBus.readByte(Address(mCpu.mProgramAddress.getBank(),mCpu.mProgramAddress.getOffset()+1)), 2).str("), Y").sp();
             log.str("                    [Direct Page Indirect Indexed, Y]");
             break;
         case AddressingMode::DirectPageIndirectLongIndexedWithY:
