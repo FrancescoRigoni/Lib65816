@@ -29,7 +29,7 @@
     else Binary::clearBitIn8BitValue(&value, 0);                \
     if (carryWillBeSet) mCpuStatus.setCarryFlag();              \
     else mCpuStatus.clearCarryFlag();                           \
-    mCpuStatus.updateSignAndZeroFlagFrom16BitValue(value);      \
+    mCpuStatus.updateSignAndZeroFlagFrom8BitValue(value);      \
 }
 
 #define DO_ROL_16_BIT(value) {                                  \
