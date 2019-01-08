@@ -80,7 +80,6 @@ void Cpu65816::executeInterrupt(OpCode &opCode) {
 
             if (mCpuStatus.emulationFlag()) {
                 Address newProgramAddress(mProgramAddress.getBank(), mStack.pull16Bit());
-                                                Log::vrb("CPU").str("  pull ").hex(newProgramAddress.getOffset()).show();
                 mProgramAddress = newProgramAddress;
                 addToCycles(6);
             } else {
