@@ -45,6 +45,10 @@ class Cpu65816 {
         void setRESPin(bool);
         void setRDYPin(bool);
 
+        void setIRQPin(bool value) { mPins.IRQ = value;}
+        void setNMIPin(bool value) { mPins.NMI = value;}
+        void setABORTPin(bool value) { mPins.ABORT = value;}
+
         // Temporary
         bool executeNextInstruction();
         void setXL(uint8_t x);
@@ -78,10 +82,18 @@ class Cpu65816 {
         uint16_t mD = 0;
 
         struct {
-            // Reset to true means low power mode (do nothing)
+            // Reset to true means low power mode (do nothing) (should jump indirect via 0x00FFFC)
             bool RES = true;
             // Ready to false means CPU is waiting for an NMI/IRQ/ABORT/RESET
             bool RDY = false;
+
+            // nmi true execute nmi vector (0x00FFEA)
+            bool NMI = false;
+            // irq true exucute irq vector (0x00FFEE)
+            bool IRQ = false;
+            // abort true execute abort vector (0x00FFE8)
+            bool ABORT = false;
+
         } mPins;
 
         Stack mStack;

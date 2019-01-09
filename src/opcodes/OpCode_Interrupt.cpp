@@ -89,6 +89,7 @@ void Cpu65816::executeInterrupt(OpCode &opCode) {
                 mProgramAddress = newProgramAddress;
                 addToCycles(7);
             }
+            break;
         }
         default: {
             LOG_UNEXPECTED_OPCODE(opCode);
